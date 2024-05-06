@@ -35,56 +35,10 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Column {
-                        Text(
-                            text = "Start",
-                            fontSize = 20.sp,
-                            modifier = Modifier.clickable { startService("Started") }
-                        )
-                        Spacer(modifier = Modifier.height(30.dp))
-                        Text(
-                            text = "Stop",
-                            fontSize = 20.sp,
-                            modifier = Modifier.clickable { stopService() }
-                        )
-                        Spacer(modifier = Modifier.height(30.dp))
-                        Text(
-                            text = "Download",
-                            fontSize = 20.sp,
-                            modifier = Modifier.clickable { download() }
-                        )
                     }
                 }
             }
         }
-    }
-
-    private fun download() {
-        val fileUrl = "http://speedtest.ftp.otenet.gr/files/test10Mb.db"
-        val fileName = "test10Mb.db"
-
-        val request = DownloadManager.Request(Uri.parse(fileUrl))
-            .setTitle(fileName)
-            .setDescription("Downloading")
-            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
-            .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName)
-
-        val downloadManager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-        downloadManager.enqueue(request)
-    }
-
-    private fun startService(input: String) {
-        val myServiceIntent = Intent(this, MyForegroundService::class.java)
-        myServiceIntent.putExtra(Constants.inputExtra, input)
-        ContextCompat.startForegroundService(this, myServiceIntent)
-    }
-
-    public fun stopService() {
-        val serviceIntent = Intent(this, MyForegroundService::class.java)
-        stopService(serviceIntent)
-    }
-
-    @Composable
-    fun Test(name: String, modifier: Modifier = Modifier) {
     }
 
 }

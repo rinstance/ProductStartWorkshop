@@ -4,8 +4,6 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
-import com.example.myapplication.Constants.Companion.channelID
-import com.example.myapplication.Constants.Companion.notificationChannelName
 
 class App : Application() {
 
