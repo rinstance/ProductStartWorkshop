@@ -7,4 +7,7 @@ class ProfileRepository {
     suspend fun getProfile(): ProfileResponse = getProfileMock()
 
     suspend fun getFriendsCount(): FriendsCountResponse = getFriendCountMock()
+
+    suspend fun getImageUrl(): String = getImageUrlMock()
+
 }
